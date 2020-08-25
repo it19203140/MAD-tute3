@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
         final View layout = li.inflate(R.layout.customtoast, (ViewGroup)
                 findViewById(R.id.custom_toast_layout));
 
-        btnOk = (Button) findViewById(R.id.okBtn);
+        btnOk = findViewById(R.id.okBtn);
         btnOk.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -54,11 +54,12 @@ public class MainActivity extends AppCompatActivity {
 
     public void sendNumbers() {
         Intent intent = new Intent (this, SecondActivity.class);
-        EditText editTextNo1 = (EditText) findViewById(R.id.editTextNo1);
-        EditText editTextNo2 = (EditText) findViewById(R.id.editTextNo2);
-        int intNumber1 = Integer.parseInt(editTextNo1.toString());
-        int intNumber2 = Integer.parseInt(editTextNo2.toString());
+        EditText editTextNo1 = findViewById(R.id.editTextNo1);
+        EditText editTextNo2 = findViewById(R.id.editTextNo2);
+        int intNumber1 = Integer.parseInt(editTextNo1.getText().toString());
+        int intNumber2 = Integer.parseInt(editTextNo2.getText().toString());
         intent.putExtra(EXTRA_NUMBER1,intNumber1);
         intent.putExtra(EXTRA_NUMBER2,intNumber2);
+        startActivity(intent);
     }
 }
